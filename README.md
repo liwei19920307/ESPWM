@@ -3,6 +3,8 @@
 
 ## 简介
 
+讨论群: `810581215`
+
 ![ESPWM_PCB_3D](./img/ESPWM_PCB_3D.png)
 ![ESPWM](./img/ESPWM.jpg)
 ![LIGHT](./img/LIGHT.jpg)
