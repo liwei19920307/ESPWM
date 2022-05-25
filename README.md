@@ -14,7 +14,7 @@
 
 | 名称                                      | 型号      | 数量 |  PCB 标注  |                           链接                           |
 | ----------------------------------------- | --------- | ---: | :--------: | :------------------------------------------------------: |
-| TLE42744GSV33 LDO SOT-223 封装            | -         |    1 |     M1     | [购买](https://item.taobao.com/item.htm?id=668286085588) |
+| ME1117A33B3G MICRONE南京微盟品牌 线性稳压器(LDO) 封装SOT-223 | -         |    1 |     M1     | [购买](https://item.taobao.com/item.htm?id=668286085588) |
 | AOD4184 D4184 N 沟道场效应 MOS 管 50A 40V | -         |    1 |     A1     | [购买](https://item.taobao.com/item.htm?id=621661261124) |
 | 贴片电阻 0603 10K                         | 0603 10K  |    1 |     R1     | [购买](https://item.taobao.com/item.htm?id=642138541174) |
 | 贴片电阻 0603 100R                        | 0603 100R |    1 |     R2     | [购买](https://item.taobao.com/item.htm?id=642138541174) |
