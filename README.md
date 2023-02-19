@@ -28,7 +28,7 @@
 
 ```yaml
 substitutions:
-  device_name: second_espwml_desk_light
+  device_name: espwm
 
 esphome:
   name: ${device_name}
