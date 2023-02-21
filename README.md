@@ -20,7 +20,7 @@
 | 2.4G 内置柔性 FPC 软天线                  | -         |    1 |     -      | [购买](https://item.taobao.com/item.htm?id=574057911861) |
 | Type-C母座 16P | - | 1 | TYPE-C | [购买](https://item.taobao.com/item.htm?&id=573090887123) |
 | DC直流电源插座 | 5.5-2.1mm/2.5mm | 1 | DC | [购买](https://item.taobao.com/item.htm?id=597934128320) |
-| KF142R-5.08-2| 2P | 1 | KF142R | [购买](https://item.taobao.com/item.htm?id=597934128320) |
+| KF142R-5.08-2| 2P | 1 | KF142R | [购买](https://item.taobao.com/item.htm?id=642774954093) |
 | ESP32-C3-WROOM-02U-N4 |- | 1 | ESP32-C3-WROOM-02-H4 | [购买](https://item.taobao.com/item.htm?id=676812781013) |
 | ESP32-C3-WROOM-02-H4 | - | 1 | ESP32-C3-WROOM-02-H4 | [购买](https://item.taobao.com/item.htm?id=672590753429) |
 
