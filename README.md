@@ -26,9 +26,11 @@
 
 ### `ESPHome`
 
+灯带
+
 ```yaml
 substitutions:
-  device_name: espwm
+  device_name: espwml_light
 
 esphome:
   name: ${device_name}
@@ -80,6 +82,66 @@ output:
 
 light:
   - platform: monochromatic
+    output: ${device_name}_ledc
+    name: ${device_name}
+```
+
+风扇
+
+```yaml
+substitutions:
+  device_name: espwml_fan
+
+esphome:
+  name: ${device_name}
+
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: arduino
+
+logger:
+
+api:
+  encryption: 
+    key: !secret api_encryption_key
+
+ota:
+  password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  fast_connect: on
+
+web_server:
+  port: 80
+
+button:
+  - platform: restart
+    name: ${device_name}_reboot
+
+text_sensor:
+  - platform: wifi_info
+    ip_address:
+      name: ${device_name}_ip
+    mac_address:
+      name: ${device_name}_mac
+
+sensor:
+  - platform: uptime
+    name: ${device_name}_uptime
+  - platform: wifi_signal
+    name: ${device_name}_signal
+
+output:
+  - platform: ledc
+    frequency: 60Hz
+    pin: 0
+    id: ${device_name}_ledc
+
+fan:
+  - platform: speed
     output: ${device_name}_ledc
     name: ${device_name}
 ```
