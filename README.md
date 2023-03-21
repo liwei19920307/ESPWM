@@ -73,6 +73,9 @@ sensor:
     name: ${device_name}_uptime
   - platform: wifi_signal
     name: ${device_name}_signal
+  - platform: internal_temperature
+    id: ${device_name}_cpu_temprature 
+    name: ${device_name}_cpu_temprature
 
 output:
   - platform: ledc
@@ -133,6 +136,9 @@ sensor:
     name: ${device_name}_uptime
   - platform: wifi_signal
     name: ${device_name}_signal
+  - platform: internal_temperature
+    id: ${device_name}_cpu_temprature 
+    name: ${device_name}_cpu_temprature
 
 output:
   - platform: ledc
