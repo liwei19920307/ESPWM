@@ -87,6 +87,8 @@ light:
   - platform: monochromatic
     output: ${device_name}_ledc
     name: ${device_name}
+    # 过渡长度
+    default_transition_length: 3s
 ```
 
 风扇
