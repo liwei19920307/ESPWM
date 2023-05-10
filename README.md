@@ -4,11 +4,11 @@
 
 ![ESPWM](./img/ESPWM.png)
 
-讨论群: `810581215`
+讨论群: [810581215](https://qm.qq.com/cgi-bin/qm/qr?k=vNK4CIj_CZiKa_sp-mL8qP5cCqGs8-dZ&jump_from=webapi&authKey=Pu4vNUR+DD4cEF7r4nU0XO7SCHHpSVETB66ms4YGvbn27MWzkgaSrcHAN5/Dhuch)
 
-在`1.0`基础上添加`TYPE-C`、`DC`、快拆接口方便刷机和供电，替换`C3`模块为乐鑫的（安信可和乐鑫关系崩了），`PCB`兼容两个版本的`C3`模块，不带天线`ESP32-C3-WROOM-02U-N4`和带天线`ESP32-C3-WROOM-02-H4` ，支持`5V~12V`供电
+在 1.0 基础上添加 TYPE-C、DC、快拆接口方便刷机和供电，替换 C3 模块为乐鑫的（安信可和乐鑫关系崩了），PCB 兼容两个版本的 C3 模块，不带天线 ESP32-C3-WROOM-02U-N4 和带天线 ESP32-C3-WROOM-02-H4 ，支持 5V~12V 供电
 
-### `材料清单`
+### 材料清单
 
 | 名称                                      | 型号            | 数量 |       PCB 标注       |                           链接                           |
 | ----------------------------------------- | --------------- | ---: | :------------------: | :------------------------------------------------------: |
@@ -24,132 +24,132 @@
 | ESP32-C3-WROOM-02U-N4                     | -               |    1 | ESP32-C3-WROOM-02-H4 | [购买](https://item.taobao.com/item.htm?id=676812781013) |
 | ESP32-C3-WROOM-02-H4                      | -               |    1 | ESP32-C3-WROOM-02-H4 | [购买](https://item.taobao.com/item.htm?id=672590753429) |
 
-### `ESPHome`
+### ESPHome
 
-灯带
+- 灯带
 
-```yaml
-substitutions:
-  device_name: espwml_light
+  ```yml
+  substitutions:
+    device_name: espwml_light
 
-esphome:
-  name: ${device_name}
-
-esp32:
-  board: esp32-c3-devkitm-1
-  framework:
-    type: arduino
-
-logger:
-
-api:
-  encryption:
-    key: !secret api_encryption_key
-
-ota:
-  password: !secret ota_password
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  fast_connect: on
-
-web_server:
-  port: 80
-
-button:
-  - platform: restart
-    name: ${device_name}_reboot
-
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: ${device_name}_ip
-    mac_address:
-      name: ${device_name}_mac
-
-sensor:
-  - platform: uptime
-    name: ${device_name}_uptime
-  - platform: wifi_signal
-    name: ${device_name}_signal
-  - platform: internal_temperature
-    id: ${device_name}_cpu_temprature 
-    name: ${device_name}_cpu_temprature
-
-output:
-  - platform: ledc
-    frequency: 1000Hz
-    pin: 0
-    id: ${device_name}_ledc
-
-light:
-  - platform: monochromatic
-    output: ${device_name}_ledc
+  esphome:
     name: ${device_name}
-    # 过渡长度
-    default_transition_length: 3s
-```
 
-风扇
+  esp32:
+    board: esp32-c3-devkitm-1
+    framework:
+      type: arduino
 
-```yaml
-substitutions:
-  device_name: espwml_fan
+  logger:
 
-esphome:
-  name: ${device_name}
+  api:
+    encryption:
+      key: !secret api_encryption_key
 
-esp32:
-  board: esp32-c3-devkitm-1
-  framework:
-    type: arduino
+  ota:
+    password: !secret ota_password
 
-logger:
+  wifi:
+    ssid: !secret wifi_ssid
+    password: !secret wifi_password
+    fast_connect: on
 
-api:
-  encryption:
-    key: !secret api_encryption_key
+  web_server:
+    port: 80
 
-ota:
-  password: !secret ota_password
+  button:
+    - platform: restart
+      name: ${device_name}_reboot
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  fast_connect: on
+  text_sensor:
+    - platform: wifi_info
+      ip_address:
+        name: ${device_name}_ip
+      mac_address:
+        name: ${device_name}_mac
 
-web_server:
-  port: 80
+  sensor:
+    - platform: uptime
+      name: ${device_name}_uptime
+    - platform: wifi_signal
+      name: ${device_name}_signal
+    - platform: internal_temperature
+      id: ${device_name}_cpu_temprature
+      name: ${device_name}_cpu_temprature
 
-button:
-  - platform: restart
-    name: ${device_name}_reboot
+  output:
+    - platform: ledc
+      frequency: 1000Hz
+      pin: 0
+      id: ${device_name}_ledc
 
-text_sensor:
-  - platform: wifi_info
-    ip_address:
-      name: ${device_name}_ip
-    mac_address:
-      name: ${device_name}_mac
+  light:
+    - platform: monochromatic
+      output: ${device_name}_ledc
+      name: ${device_name}
+      # 过渡长度
+      default_transition_length: 3s
+  ```
 
-sensor:
-  - platform: uptime
-    name: ${device_name}_uptime
-  - platform: wifi_signal
-    name: ${device_name}_signal
-  - platform: internal_temperature
-    id: ${device_name}_cpu_temprature 
-    name: ${device_name}_cpu_temprature
+- 风扇
 
-output:
-  - platform: ledc
-    frequency: 60Hz
-    pin: 0
-    id: ${device_name}_ledc
+  ```yml
+  substitutions:
+    device_name: espwml_fan
 
-fan:
-  - platform: speed
-    output: ${device_name}_ledc
+  esphome:
     name: ${device_name}
-```
+
+  esp32:
+    board: esp32-c3-devkitm-1
+    framework:
+      type: arduino
+
+  logger:
+
+  api:
+    encryption:
+      key: !secret api_encryption_key
+
+  ota:
+    password: !secret ota_password
+
+  wifi:
+    ssid: !secret wifi_ssid
+    password: !secret wifi_password
+    fast_connect: on
+
+  web_server:
+    port: 80
+
+  button:
+    - platform: restart
+      name: ${device_name}_reboot
+
+  text_sensor:
+    - platform: wifi_info
+      ip_address:
+        name: ${device_name}_ip
+      mac_address:
+        name: ${device_name}_mac
+
+  sensor:
+    - platform: uptime
+      name: ${device_name}_uptime
+    - platform: wifi_signal
+      name: ${device_name}_signal
+    - platform: internal_temperature
+      id: ${device_name}_cpu_temprature
+      name: ${device_name}_cpu_temprature
+
+  output:
+    - platform: ledc
+      frequency: 60Hz
+      pin: 0
+      id: ${device_name}_ledc
+
+  fan:
+    - platform: speed
+      output: ${device_name}_ledc
+      name: ${device_name}
+  ```
