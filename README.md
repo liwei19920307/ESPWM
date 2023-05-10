@@ -2,9 +2,9 @@
 
 ## 简介
 
-![ESPWM](./img/ESPWM.png)
-
 讨论群: [810581215](https://qm.qq.com/cgi-bin/qm/qr?k=vNK4CIj_CZiKa_sp-mL8qP5cCqGs8-dZ&jump_from=webapi&authKey=Pu4vNUR+DD4cEF7r4nU0XO7SCHHpSVETB66ms4YGvbn27MWzkgaSrcHAN5/Dhuch)
+
+![ESPWM](./img/ESPWM.png)
 
 在 1.0 基础上添加 TYPE-C、DC、快拆接口方便刷机和供电，替换 C3 模块为乐鑫的（安信可和乐鑫关系崩了），PCB 兼容两个版本的 C3 模块，不带天线 ESP32-C3-WROOM-02U-N4 和带天线 ESP32-C3-WROOM-02-H4 ，支持 5V~12V 供电
 
