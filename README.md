@@ -79,7 +79,7 @@
 
   output:
     - platform: ledc
-      frequency: 1000Hz
+      frequency: 40000Hz
       pin: 0
       id: ${device_name}_ledc
 
@@ -144,7 +144,7 @@
 
   output:
     - platform: ledc
-      frequency: 60Hz
+      frequency: 40000Hz
       pin: 0
       id: ${device_name}_ledc
 
