@@ -30,8 +30,8 @@
 
   ```yml
   substitutions:
-    device_name: espwml
-    
+    device_name: balcony_espwml_sink_light
+
   esphome:
     name: ${device_name}
 
@@ -39,6 +39,7 @@
     board: esp32-c3-devkitm-1
     framework:
       type: arduino
+      version: latest
 
   logger:
     level: debug
@@ -47,7 +48,7 @@
     update_interval: 5s
 
   api:
-    encryption: 
+    encryption:
       key: !secret api_encryption_key
 
   ota:
@@ -63,7 +64,7 @@
     port: 80
     version: 3
     include_internal: true
-    
+
   text_sensor:
     - platform: wifi_info
       ip_address:
@@ -94,14 +95,18 @@
         internal: true
         filters:
           - lambda: |-
-              return x / 1024;      
+              return x / 1024;
       loop_time:
         name: ${device_name}_loop_time
         internal: true
+    - platform: internal_temperature
+      name: ${device_name}_cpu_temprature
+      icon: mdi:thermometer
+      internal: true
 
   button:
     - platform: restart
-      name: ${device_name}_reboot  
+      name: ${device_name}_reboot
       internal: true
 
   output:
@@ -122,8 +127,8 @@
 
   ```yml
   substitutions:
-    device_name: espwml
-    
+    device_name: balcony_espwml_sink_light
+
   esphome:
     name: ${device_name}
 
@@ -131,6 +136,7 @@
     board: esp32-c3-devkitm-1
     framework:
       type: arduino
+      version: latest
 
   logger:
     level: debug
@@ -139,7 +145,7 @@
     update_interval: 5s
 
   api:
-    encryption: 
+    encryption:
       key: !secret api_encryption_key
 
   ota:
@@ -155,7 +161,7 @@
     port: 80
     version: 3
     include_internal: true
-    
+
   text_sensor:
     - platform: wifi_info
       ip_address:
@@ -186,14 +192,18 @@
         internal: true
         filters:
           - lambda: |-
-              return x / 1024;      
+              return x / 1024;
       loop_time:
         name: ${device_name}_loop_time
         internal: true
+    - platform: internal_temperature
+      name: ${device_name}_cpu_temprature
+      icon: mdi:thermometer
+      internal: true
 
   button:
     - platform: restart
-      name: ${device_name}_reboot  
+      name: ${device_name}_reboot
       internal: true
 
   output:
