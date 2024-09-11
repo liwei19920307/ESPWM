@@ -30,8 +30,8 @@
 
   ```yml
   substitutions:
-    device_name: espwml_light
-
+    device_name: espwml
+    
   esphome:
     name: ${device_name}
 
@@ -41,13 +41,18 @@
       type: arduino
 
   logger:
+    level: debug
+
+  debug:
+    update_interval: 5s
 
   api:
-    encryption:
+    encryption: 
       key: !secret api_encryption_key
 
   ota:
-    password: !secret ota_password
+    - platform: esphome
+      password: !secret ota_password
 
   wifi:
     ssid: !secret wifi_ssid
@@ -56,26 +61,48 @@
 
   web_server:
     port: 80
-
-  button:
-    - platform: restart
-      name: ${device_name}_reboot
-
+    version: 3
+    include_internal: true
+    
   text_sensor:
     - platform: wifi_info
       ip_address:
         name: ${device_name}_ip
+        icon: mdi:ip-outline
+        internal: true
       mac_address:
         name: ${device_name}_mac
+        icon: mdi:map-marker-outline
+        internal: true
 
   sensor:
-    - platform: uptime
-      name: ${device_name}_uptime
     - platform: wifi_signal
       name: ${device_name}_signal
-    - platform: internal_temperature
-      id: ${device_name}_cpu_temprature
-      name: ${device_name}_cpu_temprature
+      icon: mdi:signal
+      internal: true
+    - platform: debug
+      free:
+        name: ${device_name}_free
+        unit_of_measurement: "KB"
+        internal: true
+        filters:
+          - lambda: |-
+              return x / 1024;
+      block:
+        name: ${device_name}_max_block
+        unit_of_measurement: "KB"
+        internal: true
+        filters:
+          - lambda: |-
+              return x / 1024;      
+      loop_time:
+        name: ${device_name}_loop_time
+        internal: true
+
+  button:
+    - platform: restart
+      name: ${device_name}_reboot  
+      internal: true
 
   output:
     - platform: ledc
@@ -95,8 +122,8 @@
 
   ```yml
   substitutions:
-    device_name: espwml_fan
-
+    device_name: espwml
+    
   esphome:
     name: ${device_name}
 
@@ -106,13 +133,18 @@
       type: arduino
 
   logger:
+    level: debug
+
+  debug:
+    update_interval: 5s
 
   api:
-    encryption:
+    encryption: 
       key: !secret api_encryption_key
 
   ota:
-    password: !secret ota_password
+    - platform: esphome
+      password: !secret ota_password
 
   wifi:
     ssid: !secret wifi_ssid
@@ -121,26 +153,48 @@
 
   web_server:
     port: 80
-
-  button:
-    - platform: restart
-      name: ${device_name}_reboot
-
+    version: 3
+    include_internal: true
+    
   text_sensor:
     - platform: wifi_info
       ip_address:
         name: ${device_name}_ip
+        icon: mdi:ip-outline
+        internal: true
       mac_address:
         name: ${device_name}_mac
+        icon: mdi:map-marker-outline
+        internal: true
 
   sensor:
-    - platform: uptime
-      name: ${device_name}_uptime
     - platform: wifi_signal
       name: ${device_name}_signal
-    - platform: internal_temperature
-      id: ${device_name}_cpu_temprature
-      name: ${device_name}_cpu_temprature
+      icon: mdi:signal
+      internal: true
+    - platform: debug
+      free:
+        name: ${device_name}_free
+        unit_of_measurement: "KB"
+        internal: true
+        filters:
+          - lambda: |-
+              return x / 1024;
+      block:
+        name: ${device_name}_max_block
+        unit_of_measurement: "KB"
+        internal: true
+        filters:
+          - lambda: |-
+              return x / 1024;      
+      loop_time:
+        name: ${device_name}_loop_time
+        internal: true
+
+  button:
+    - platform: restart
+      name: ${device_name}_reboot  
+      internal: true
 
   output:
     - platform: ledc
